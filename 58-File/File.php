@@ -1,5 +1,7 @@
 <?php
 
+<?php
+
 require_once('iFile.php');
 
 class File implements iFile 
@@ -8,8 +10,9 @@ class File implements iFile
 
     public function __construct($filePath)
     {
-        //проверить на существование
-        $this->path = $filePath;
+        if (file_exists($filePath)) {
+            $this->path = $filePath;
+        }
     }
 		
     public function getPath() 
@@ -70,7 +73,9 @@ class File implements iFile
 
     public function replace($newPath) 
     {
-        //проверить, существует ли такая директория, если нет - создать
+        if (!file_exists($newPath)) {
+            mkdir($newPath);
+        }
         $name = $this->getName();
         return rename($this->path, $newPath . '/'. $name);
     }
