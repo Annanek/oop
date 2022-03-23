@@ -76,7 +76,7 @@ class Tag implements iTag
         return $this;
     }
 
-    public function removeAttr($name) //пока не понятно, как применять
+    public function removeAttr($name) 
     {
         $attr = $this->attrs[$name];
         if (isset($attr)) {
