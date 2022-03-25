@@ -18,6 +18,3 @@ for ($i = 1; $i <= 5; $i++)
 
 ?>
 </ul>
-
-<?php
-echo $_SERVER['REQUEST_URI'];
